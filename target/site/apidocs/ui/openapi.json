@@ -1,0 +1,336 @@
+{
+  "openapi": "3.0.3",
+  "info" : {
+    "description" : "<h1>Prispevky<\/h1><p>Demo project for Spring Boot<\/p>",
+    "version" : "0.0.1-SNAPSHOT",
+    "title" : "Prispevky"
+  },
+  "servers" : [
+    {
+      "url" : "/api/comments"
+    }
+  ],
+  "tags" : [
+    {
+      "name" : "CommentController"
+      ,
+      "description" : "REST controller for managing comments."
+    }
+  ],
+  "components" : {
+    "schemas" : {
+      "Comment" : {
+"type" : "object",
+"title" : "Comment",
+"example" : { },
+"description" : ""
+      }
+      ,
+      "xml_ns0_comment" : {
+"type" : "object",
+"title" : "comment",
+"allOf" : [
+  {
+  }
+],
+"description" : ""
+      }
+    }
+  },
+  "paths": {
+    "\/api/comments" : {
+      "get" : {
+        "tags" : [ "CommentController" ],
+        "description" : "Retrieves all comments.",
+        "operationId" : "getAllComments",
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "example" : {
+                    "value" : "[ { } ]"
+                  }
+                },
+                "schema" : {
+"description" : "",
+"type" : "array",
+"items" : {
+  "$ref" : "#/components/schemas/Comment"
+}
+                }
+              }, 
+              "application/xml" : {
+                "examples" : {
+                  "example" : {
+                    "value" : "<list>\n  <c-----/>\n<\/list>\n"
+                  }
+                },
+                "schema" : {
+"description" : "",
+"type" : "array",
+"items" : {
+  "$ref" : "#/components/schemas/xml_ns0_comment"
+}
+                }
+              }
+            },
+            "description" : "a list of all Comment objects."
+          }
+        },
+        "parameters" : [
+        ]
+      },
+      "post" : {
+        "tags" : [ "CommentController" ],
+        "description" : "Creates a new comment.",
+        "operationId" : "createComment",
+        "requestBody" : {
+          "description" : "the Comment object to create.",
+          "required" : false,
+          "content" : {
+            "application/json" : {
+              "examples" : {
+                "example" : {
+                  "value" : "{ }"
+                }
+              },
+              "schema" : {
+"$ref" : "#/components/schemas/Comment",
+"description" : ""
+              }
+            }, 
+            "application/xml" : {
+              "examples" : {
+                "example" : {
+                  "value" : "<c-----/>\n"
+                }
+              },
+              "schema" : {
+"$ref" : "#/components/schemas/xml_ns0_comment",
+"description" : ""
+              }
+            }
+          }
+        },
+        "responses" : {
+          "201" : {
+            "content" : {
+              "application/json" : {
+                "schema" : {
+"description" : "",
+"type" : "string"
+                }
+              }, 
+              "application/xml" : {
+                "schema" : {
+"description" : "",
+"type" : "string"
+                }
+              }
+            },
+            "description" : "a ResponseEntity containing the created Comment."
+          }
+        },
+        "parameters" : [
+        ]
+      }
+    },
+    "\/api/comments/user/{userId}" : {
+      "get" : {
+        "tags" : [ "CommentController" ],
+        "description" : "Retrieves comments by user ID.",
+        "operationId" : "getCommentsByUserId",
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "example" : {
+                    "value" : "[ { } ]"
+                  }
+                },
+                "schema" : {
+"description" : "",
+"type" : "array",
+"items" : {
+  "$ref" : "#/components/schemas/Comment"
+}
+                }
+              }, 
+              "application/xml" : {
+                "examples" : {
+                  "example" : {
+                    "value" : "<list>\n  <c-----/>\n<\/list>\n"
+                  }
+                },
+                "schema" : {
+"description" : "",
+"type" : "array",
+"items" : {
+  "$ref" : "#/components/schemas/xml_ns0_comment"
+}
+                }
+              }
+            },
+            "description" : "a ResponseEntity containing a list of Comment objects,\nor a 204 status if no comments are found."
+          }
+        },
+        "parameters" : [
+          {
+            "name" : "userId",
+            "in" : "path",
+            "required" : true,
+            "schema" : {
+              "type" : "integer"
+            },
+            "description" : "the ID of the user whose comments are to be retrieved."
+          }
+        ]
+      }
+    },
+    "\/api/comments/{id}" : {
+      "delete" : {
+        "tags" : [ "CommentController" ],
+        "description" : "Deletes a comment by its ID.",
+        "operationId" : "deleteComment",
+        "responses" : {
+          "204" : {
+            "content" : {
+            },
+            "description" : "Success"
+          }
+        },
+        "parameters" : [
+          {
+            "name" : "id",
+            "in" : "path",
+            "required" : true,
+            "schema" : {
+              "type" : "integer"
+            },
+            "description" : "the ID of the comment to delete."
+          }
+        ]
+      },
+      "get" : {
+        "tags" : [ "CommentController" ],
+        "description" : "Retrieves a comment by its ID.",
+        "operationId" : "getCommentById",
+        "responses" : {
+          "200" : {
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "example" : {
+                    "value" : "{ }"
+                  }
+                },
+                "schema" : {
+"$ref" : "#/components/schemas/Comment",
+"description" : ""
+                }
+              }, 
+              "application/xml" : {
+                "examples" : {
+                  "example" : {
+                    "value" : "<c-----/>\n"
+                  }
+                },
+                "schema" : {
+"$ref" : "#/components/schemas/xml_ns0_comment",
+"description" : ""
+                }
+              }
+            },
+            "description" : "a ResponseEntity containing the Comment if found, or a 404 status if not found."
+          }
+        },
+        "parameters" : [
+          {
+            "name" : "id",
+            "in" : "path",
+            "required" : true,
+            "schema" : {
+              "type" : "integer"
+            },
+            "description" : "the ID of the comment to retrieve."
+          }
+        ]
+      },
+      "put" : {
+        "tags" : [ "CommentController" ],
+        "description" : "Updates an existing comment.",
+        "operationId" : "updateComment",
+        "requestBody" : {
+          "description" : "the Comment object containing updated data.",
+          "required" : false,
+          "content" : {
+            "application/json" : {
+              "examples" : {
+                "example" : {
+                  "value" : "{ }"
+                }
+              },
+              "schema" : {
+"$ref" : "#/components/schemas/Comment",
+"description" : ""
+              }
+            }, 
+            "application/xml" : {
+              "examples" : {
+                "example" : {
+                  "value" : "<c-----/>\n"
+                }
+              },
+              "schema" : {
+"$ref" : "#/components/schemas/xml_ns0_comment",
+"description" : ""
+              }
+            }
+          }
+        },
+        "responses" : {
+          "204" : {
+            "content" : {
+              "application/json" : {
+                "examples" : {
+                  "example" : {
+                    "value" : "{ }"
+                  }
+                },
+                "schema" : {
+"$ref" : "#/components/schemas/Comment",
+"description" : ""
+                }
+              }, 
+              "application/xml" : {
+                "examples" : {
+                  "example" : {
+                    "value" : "<c-----/>\n"
+                  }
+                },
+                "schema" : {
+"$ref" : "#/components/schemas/xml_ns0_comment",
+"description" : ""
+                }
+              }
+            },
+            "description" : "a ResponseEntity containing the updated Comment."
+          }
+        },
+        "parameters" : [
+          {
+            "name" : "id",
+            "in" : "path",
+            "required" : true,
+            "schema" : {
+              "type" : "integer"
+            },
+            "description" : "the ID of the comment to update."
+          }
+        ]
+      }
+    }
+  }
+}

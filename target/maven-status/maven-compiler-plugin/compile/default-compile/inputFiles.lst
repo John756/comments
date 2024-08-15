@@ -1,0 +1,10 @@
+/home/j/ProjectsIntelliJ/Prispevky/src/main/java/org/example/prispevky/AppConfig.java
+/home/j/ProjectsIntelliJ/Prispevky/src/main/java/org/example/prispevky/Constants.java
+/home/j/ProjectsIntelliJ/Prispevky/src/main/java/org/example/prispevky/PrispevkyApplication.java
+/home/j/ProjectsIntelliJ/Prispevky/src/main/java/org/example/prispevky/controller/CommentController.java
+/home/j/ProjectsIntelliJ/Prispevky/src/main/java/org/example/prispevky/entity/Comment.java
+/home/j/ProjectsIntelliJ/Prispevky/src/main/java/org/example/prispevky/exception/CommentIdNotFoundException.java
+/home/j/ProjectsIntelliJ/Prispevky/src/main/java/org/example/prispevky/exception/GlobalExceptionHandler.java
+/home/j/ProjectsIntelliJ/Prispevky/src/main/java/org/example/prispevky/exception/UserNotFoundException.java
+/home/j/ProjectsIntelliJ/Prispevky/src/main/java/org/example/prispevky/repo/CommentRepository.java
+/home/j/ProjectsIntelliJ/Prispevky/src/main/java/org/example/prispevky/service/CommentService.java
