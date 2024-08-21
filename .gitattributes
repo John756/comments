@@ -1,3 +1,4 @@
+*.java linguist-language=Java
 *.java linguist-detectable=true
 *.js linguist-detectable=false
 *.html linguist-detectable=false
@@ -5,3 +6,8 @@
 *.m linguist-detectable=false
 *.h linguist-detectable=false
 *.mm linguist-detectable=false
+*.c linguist-detectable=false
+*.h linguist-detectable=false
+*.cpp linguist-detectable=false
+*.cc linguist-detectable=false
+*.hpp linguist-detectable=false
